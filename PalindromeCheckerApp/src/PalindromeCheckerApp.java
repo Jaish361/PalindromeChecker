@@ -1,21 +1,29 @@
 import java.util.Scanner;
 public class PalindromeCheckerApp {
-public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in);
-    System.out.print("enter a string");
-    String word = sc.nextLine();
-    String reversed = "";
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("enter a string");
+        String word = sc.nextLine();
+        char[] arr = word.toCharArray();
+        int start = 0;
+        int end = arr.length -1;
+        boolean isPalindrome = true;
+        while(start<end){
+            if (arr[start] != arr[end]) {
+                isPalindrome = false;
+                break;
+            }
 
-    //reverse kro loop use krke
-    for(int i=word.length() - 1 ; i>=0; i--){
-        reversed += word.charAt(i);
-    }
-    if (word.equals(reversed)) {
-        System.out.println(word + " is a Palindrome.");
-    } else {
-        System.out.println(word + " is NOT a Palindrome.");
-    }
+            start++;
+            end--;
+        }
 
-    sc.close();
-}
+        if (isPalindrome) {
+            System.out.println(word + " is a Palindrome.");
+        } else {
+            System.out.println(word + " is NOT a Palindrome.");
+        }
+
+        sc.close();
+    }
 }
